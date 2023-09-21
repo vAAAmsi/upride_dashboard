@@ -1,17 +1,9 @@
-const calculateRange = (data, rowsPerPage) => {
-    const range = [];
-    const num = Math.ceil(data.length / rowsPerPage);
-    for (let i = 1; i <= num; i++) {
-        range.push(i);
-    }
-    return range;
-}
-
-const sliceData = (data, page, rowsPerPage) => {
-    return data.slice((page - 1) * rowsPerPage, page * rowsPerPage);
-}  
+function sliceData(data, currentPage, itemsPerPage) {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    return data.slice(startIndex, endIndex);
+  }
 
 export {
-    calculateRange,
-    sliceData
+  sliceData
 }

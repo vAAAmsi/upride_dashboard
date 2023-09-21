@@ -1,32 +1,32 @@
-import DashboardIcon from '../assets/icons/dashboard.svg';
-import ShippingIcon from '../assets/icons/shipping.svg';
-import ProductIcon from '../assets/icons/product.svg';
-import UserIcon from '../assets/icons/user.svg';
+import HomeIcon from '../assets/icons/home.png';
+import EarningsIcon from '../assets/icons/earnings.png';
+import ServicesIcon from '../assets/icons/services.png'
+import AssetsIcon from '../assets/icons/assets.png';
 
 const sidebar_menu = [
     {
         id: 1,
-        icon: DashboardIcon,
-        path: '/',
-        title: 'Dashboard',
+        icon: HomeIcon,
+        path: '/dashboard',
+        title: 'Home',
     },
     {
         id: 2,
-        icon: ProductIcon,
-        path: '/orders',
-        title: 'Orders',
+        icon: EarningsIcon,
+        path: '/earnings',
+        title: 'My Earnings',
     },
     {
         id: 3,
-        icon: ShippingIcon,
-        path: '/products',
-        title: 'Products',
+        icon: ServicesIcon,
+        path: '/services',
+        title: 'My Services',
     },
     {
         id: 4,
-        icon: UserIcon,
-        path: '/profile',
-        title: 'My account',
+        icon: AssetsIcon,
+        path: '/assets',
+        title: 'My Assets',
     }
 ]
 
