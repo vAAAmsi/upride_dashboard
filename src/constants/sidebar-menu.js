@@ -1,7 +1,7 @@
-import HomeIcon from '../assets/icons/home.png';
-import EarningsIcon from '../assets/icons/earnings.png';
-import ServicesIcon from '../assets/icons/services.png'
-import AssetsIcon from '../assets/icons/assets.png';
+import HomeIcon from '../assets/icons/home.svg'
+import EarningsIcon from '../assets/icons/earnings.svg';
+import ServicesIcon from '../assets/icons/services.svg'
+import AssetsIcon from '../assets/icons/assets.svg';
 
 const sidebar_menu = [
     {

@@ -6,9 +6,10 @@ import SideBarItem from './sidebar-item';
 import { useNavigate } from 'react-router-dom';
 import './styles.css';
 import logo from '../../assets/images/upride-logo.png';
-import LogoutIcon from '../../assets/icons/logout.png';
+import LogoutIcon from '../../assets/icons/logout.svg';
 import CircleIcon from '@mui/icons-material/Circle';
 import RadioButtonUncheckedIcon from '@mui/icons-material/RadioButtonUnchecked';
+import Swal from 'sweetalert2';
 function SideBar ({ menu }) {
     const location = useLocation();
     const navigate = useNavigate()
@@ -27,6 +28,15 @@ function SideBar ({ menu }) {
         setActive(id);
     }
 
+    const LogoutHandler = () => {
+        navigate('/')
+        Swal.fire({
+            icon : 'success',
+            title : 'successfully logged out!!'
+            
+        })
+    }
+
     return(
         <nav className='sidebar'>
             <div className='sidebar-container'>
@@ -39,18 +49,18 @@ function SideBar ({ menu }) {
                 <div className='address-main' >
                     <div className='address-main-inner'>
                         <div  className='address-icons'>
-                            <LocationOnIcon sx={{color:'#EB6B9D'}} /> 
+                            <LocationOnIcon sx={{color:'#EB6B9D',fontSize:'15px'}} /> 
                             Rajarajeshwari Nagar
                             <ArrowDropDownIcon sx={{color:'#EB6B9D'}} />
                         </div>
                         <div className='address-branch'>
-                        Branch name
+                        Branch 2
                         <CircleIcon sx={{color:'#EB6B9D',fontSize:'15px'}}  />
 
                         </div>
                         <hr style={{borderTop:' 1px dashed gray' }}/>
                         <div className='address-branch'>
-                        Branch name
+                        Branch 3
                         <RadioButtonUncheckedIcon sx={{color:'#EB6B9D',fontSize:'15px'}}  />
 
                         </div>
@@ -68,7 +78,7 @@ function SideBar ({ menu }) {
                     </div>
 
                     <div className='sidebar-footer'
-                    onClick={() => navigate('/')}>
+                    onClick={() => LogoutHandler()}>
                         
                         <span className='sidebar-item-label'>Logout</span>
                         <img 

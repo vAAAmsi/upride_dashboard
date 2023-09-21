@@ -1,6 +1,6 @@
 .container{
-    height: 100%;
-    width: 100%;
+    min-width: 210vh;
+    min-height: 100vh;
     background-color: #e6e9ed;
     display: flex;
     justify-content: center;

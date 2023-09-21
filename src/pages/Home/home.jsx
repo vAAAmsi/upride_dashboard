@@ -5,8 +5,11 @@ import './home.css';
 import { sliceData } from '../../utils/table-pagination';
 import CarImage from '../../assets/images/car.avif'
 import WaveImage from '../../assets/icons/wave.png'
+import PhoneHand from '../../assets/icons/PhonewithHand.svg'
 import AddBookingModal from '../../components/popup/popup';
 import Swal from 'sweetalert2';
+import { TextField, InputAdornment, Button } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 function HomePage () {
     
     const [isloading, setIsloading] = useState(true)
@@ -84,30 +87,62 @@ function HomePage () {
            <div className='home_navtype'>
                 <div className='home_navtype_inner'>
                     
-                    <div className='dashboard-content-search'>
-                        <input
+                    <div 
+                    // className='dashboard-content-search'
+                    >
+                        {/* <input
                             type='text'
                             value={searchValue}
                             placeholder='Search bookings..'
                             className='dashboard-content-input'
                             onChange={(e) => setSearchValue(e.target.value)}
-                             />
+                        /> */}
+                        <TextField
+                            className="Search"
+                            style={{borderRadius: '100px'}}
+                            
+                            onChange={(e) => setSearchValue(e.target.value)}
+                            value={searchValue}
+                            label="Search bookings.."
+                            InputProps={{
+                                endAdornment: (
+                                <InputAdornment position="end">
+                                    <SearchIcon  style={{
+                                        color: 'white', 
+                                        borderRadius:'10px', 
+                                        backgroundColor: '#FB8085'}} />
+                                        
+                                </InputAdornment>
+                                ),
+                            }}
+                            />
+ 
                     </div>
                      <button className='dashboard-add-btn' onClick={handleOpenModal}>
                         + New Bookings
                     </button>
+                    
                      {isModalOpen && (
                         <AddBookingModal onClose={handleCloseModal} onSave={handleSaveBooking} />
                     )}
                 </div>
-                <div className='home_navtype_inner_end'>
+                <div className='home_navtype_inner_end'> 
                     <img className='image1'   src={CarImage} />
                     Hello<div className='username'>{UserName}</div>
                     <img className='image2'   src={WaveImage} />
                 </div>
             
             </div>
-            <h2 style={{marginLeft:'20px'}}>View Bookings!</h2>
+           
+            <div className='view-bookings-main'>
+                <div className='view-bookings-text'>View Bookings</div> 
+               
+                <img 
+                    src={PhoneHand}
+                    alt={`icon-${PhoneHand}`}
+                    className='item-icon'
+                     />
+            </div>
             <div className='dashboard-content-container'>
                 <div className='dashboard-content-titles'>
                     <div onClick={() => {
@@ -209,7 +244,7 @@ export const ActiveBookingsSlide = ({data,searchValue}) => {
             })
             ?.map((order, index) => (
                 <tr key={index}>
-                    <td><span>{order.userName}</span></td>
+                    <td><span className='username'>{order.userName}</span></td>
                     <td>
                         {new Date(order.bookingEpochTime).toLocaleDateString('en-US', {
                             year: 'numeric',
@@ -223,10 +258,11 @@ export const ActiveBookingsSlide = ({data,searchValue}) => {
                     </td>
                     <td >
                     <div style={{
-                        backgroundColor: order.offlineBooking ? 'yellow' : 'green',
+                        fontSize :'10px',
+                        backgroundColor: order.offlineBooking ? ' rgba(255, 202, 40, 1)' : ' rgba(53, 219, 162, 1)',
                         color: order.offlineBooking ? 'black' : 'white',
-                        borderRadius: '5px',
-                        padding: '5px',
+                        borderRadius: '10px',
+                        padding: '2px',
                         width: order.offlineBooking ? 'fit-content' : 'fit-content',
                         }} >
                         {order.offlineBooking === false ? 'Online Payment' : 'Offline Payment'}
@@ -265,10 +301,11 @@ export const CompletedBookingsSlide = ({data,searchValue}) => {
                 </td>
                 <td >
                     <div style={{
-                        backgroundColor: order.offlineBooking ? 'yellow' : 'green',
+                        fontSize :'10px',
+                        backgroundColor: order.offlineBooking ? ' rgba(255, 202, 40, 1)' : ' rgba(53, 219, 162, 1)',
                         color: order.offlineBooking ? 'black' : 'white',
-                        borderRadius: '5px',
-                        padding: '5px',
+                        borderRadius: '10px',
+                        padding: '2px',
                         width: order.offlineBooking ? 'fit-content' : 'fit-content',
                         }} >
                         {order.offlineBooking === false ? 'Online Payment' : 'Offline Payment'}
@@ -307,10 +344,11 @@ export const CancelledBookingsSlide = ({data, searchValue}) => {
                 </td>
                 <td >
                     <div style={{
-                        backgroundColor: order.offlineBooking ? 'yellow' : 'green',
+                        fontSize :'10px',
+                        backgroundColor: order.offlineBooking ? ' rgba(255, 202, 40, 1)' : ' rgba(53, 219, 162, 1)',
                         color: order.offlineBooking ? 'black' : 'white',
-                        borderRadius: '5px',
-                        padding: '5px',
+                        borderRadius: '10px',
+                        padding: '2px',
                         width: order.offlineBooking ? 'fit-content' : 'fit-content',
                         }} >
                         {order.offlineBooking === false ? 'Online Payment' : 'Offline Payment'}
@@ -325,9 +363,7 @@ export const CancelledBookingsSlide = ({data, searchValue}) => {
 }
 
 
-export const AddBooking = () => {
-    
-}
+
 
 
 
